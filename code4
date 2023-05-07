@@ -1,0 +1,30 @@
+// HTML-Elemente abrufen
+const button = document.querySelector('button');
+const audio = document.querySelector('audio');
+
+// Klickereignis auf den Button hinzufügen
+button.addEventListener('click', () => {
+  // Zufällige Farbe generieren
+  const randomColor = getRandomColor();
+
+  // Farbe auf den Hintergrund anwenden
+  document.body.style.backgroundColor = randomColor;
+
+  // Tonsignal abspielen
+  playSound();
+});
+
+// Funktion zur Generierung einer zufälligen Farbe
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+// Funktion zum Abspielen des Tonsignals
+function playSound() {
+  audio.play();
+}
